@@ -1,0 +1,93 @@
+/* - - - - Start Font families - - - - */
+
+@font-face {font-family: 'JosefinSans-Regular';
+    font-style: normal;
+    font-weight: 400;
+    src: url(JosefinSans-Regular.eot);
+    src: local('JosefinSans-Regular'), url('../Fonts/JosefinSans-Regular.ttf') format('truetype');}
+
+@font-face {font-family: 'Domine-Regular';
+    font-style: normal;
+    font-weight: 400;
+    src: url(Domine-Regular.eot);
+    src: local('Domine-Regular'), url('../Fonts/Domine-Regular.ttf') format('truetype');}
+
+/* - - - - End Font families - - - - */
+
+
+/* - - - - Start Css rules - - - - */
+* {box-sizing: border-box;
+    margin: 0; 
+    padding: 0; 
+    font-family: 'Domine-Regular';}
+
+img,video {width:100%;
+        height:100%;
+        max-height:100%;
+        max-width: 100%;}
+
+.video {margin-top: 3em;
+    margin-bottom: 3em;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
+    height: auto;}
+
+h1, h2, h3, h4, h5, h6 {color: #BFC4F4;
+    font-size: 2.1em;
+    margin: 0;}
+
+h1,h2 {text-align: center;}
+
+.otherPage {text-align: center;
+    font-size: 1.3em;
+    margin-top: 100px;}
+
+p  {font-size: 1.3em;
+    margin-top: 25px;
+    margin-left: 2%;
+    margin-right: 2%;
+    line-height: 1.88;
+    text-align:justify;
+    color: #444444;}
+
+#wrapper {overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(5, auto);
+    grid-template-areas:
+    "header header header header header header"
+    "space space space space space space"
+    "main main main main main navBarTop"
+    "main main main main main navBarBottom"
+    "footer footer footer footer footer footer";}
+
+header {grid-area: header;
+    height: 185px;
+    background-color: #454D91;}
+
+#logo {position: relative;
+    margin-top: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 190px;
+        height: auto;}
+
+#space {grid-area: space;
+    height: 3px;
+    background-color: #BFC4F4;
+    border-color: black;}
+
+main {grid-area: main;
+    background-color: #7481F2;}
+
+#navBarTop {grid-area: navBarTop;
+    background-color: coral;}
+
+#navBarBottom {grid-area: navBarBottom;
+    background-color: goldenrod;}
+
+footer {grid-area: footer;
+    height: 120px;
+    background-color: #454D91;}
+/* - - - - End Css rules - - - - */
