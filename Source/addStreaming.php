@@ -55,7 +55,7 @@
                     <label for="fname">Nome della cartella:</label>
                     <input type="text" id="directoryName" name="directoryName" />
                     <br /> <br />
-                    <input type="submit" value="Submit">
+                    <input type="submit" value="Invio">
                     <input type="reset" value="Reset">
                 </form>
             </div>
@@ -81,9 +81,14 @@
         include "function.php";
         if(isset($_GET["directoryName"])) { 
             $directoryName = $_GET["directoryName"];
-            echo isValidDirectory($directoryName);
+            if(isValidDirectory($directoryName)) {
+                saveDirectoryFile($directoryName);
+                //Display ok msg
+            } else {
+                //Display Red Error msg
+            }
         }
-        ?>
+    ?>
 
     </body>
 </html>

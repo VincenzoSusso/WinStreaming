@@ -38,6 +38,11 @@
         <div id="space"></div>
 
         <main>
+            
+            <?php
+                include "Source/function.php";
+            ?>
+
         </main>
 
         <div id="navBarTop">
