@@ -83,6 +83,7 @@
             $directoryName = $_GET["directoryName"];
             if(isValidDirectory($directoryName)) {
                 saveDirectoryFile($directoryName);
+                createHTMLPage($directoryName);
                 //Display ok msg
             } else {
                 //Display Red Error msg

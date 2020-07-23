@@ -41,6 +41,8 @@
             
             <?php
                 include "Source/function.php";
+
+                getLinkPages();
             ?>
 
         </main>
