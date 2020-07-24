@@ -146,10 +146,10 @@ main {grid-area: main;
     background-color: #7481F2;}
 
 #navBarTop {grid-area: navBarTop;
-    background-color: coral;}
+    background-color: #3783B0;}
 
 #navBarBottom {grid-area: navBarBottom;
-    background-color: goldenrod;}
+    background-color: #0E5C8A;}
 
 footer {grid-area: footer;
     height: 120px;

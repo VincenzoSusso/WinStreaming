@@ -42,12 +42,39 @@
             <?php
                 include "function.php";
 
+                $pageWritten = false;
+
                 foreach (new DirectoryIterator("./") as $fileDirectory) {
                     if($fileDirectory -> isDir() And !$fileDirectory->isDot()) {
                         echo "<h1>" . $fileDirectory->getFilename() . "</h1>
-                        <a href=Source/" . $fileDirectory . "/" . $fileDirectory . ".php class=\"otherPage\" style=\"font-size:1.2em\">Clicca qui per cancellare " . $fileDirectory->getFilename() . "</a>";
+                        <a href=\"removeStreaming.php?directoryName=$fileDirectory\" class=\"otherPage\" style=\"font-size:1.2em\">Clicca qui per cancellare " . $fileDirectory->getFilename() . "</a>";
+                        $pageWritten = true;
                     }
                 }
+
+                if(!$pageWritten) {
+                    echo "<h1>Non c'è nessun Film/SerieTV da rimuovere</h1>";
+                }
+            ?>
+
+            <?php
+                if(isset($_GET["directoryName"])) { 
+                    $directoryName = $_GET["directoryName"];
+                    if(isValidDirectory($directoryName)) {
+
+                    removeDirectory($directoryName);
+                    
+                    echo "<div class=\"responseDiv\">
+                            <p class=\"responsePositive\">
+                            Lo streaming di " . $directoryName ." è stato eliminato con successo
+                             </p>
+                        </div>";
+                } else {
+                    echo "<div class=\"responseDiv\">
+                            <p class=\"responseNegative\">C'è stato un errore con lo streaming di " . $directoryName ."</p>
+                        </div>";
+                }
+            }
             ?>
 
         </main>

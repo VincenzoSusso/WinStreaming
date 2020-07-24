@@ -62,6 +62,7 @@
 
             <?php
                 include "function.php";
+                
                 if(isset($_GET["directoryName"])) { 
                     $directoryName = $_GET["directoryName"];
                     if(isValidDirectory($directoryName)) {
