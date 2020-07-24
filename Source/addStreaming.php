@@ -66,7 +66,6 @@
                 if(isset($_GET["directoryName"])) { 
                     $directoryName = $_GET["directoryName"];
                     if(isValidDirectory($directoryName)) {
-                        saveDirectoryFile($directoryName);
                         createHTMLPage($directoryName);
                         echo "<div class=\"responseDiv\">
                             <p class=\"responsePositive\">
