@@ -67,12 +67,10 @@
     }
 
     function insertLinkPages($directoryName) {
-        $directoryFilePath = "./" . $directoryName;
-
-        foreach (new DirectoryIterator($directoryFilePath) as $fileDirectory) {
+        foreach (new DirectoryIterator("./") as $fileDirectory) {
             if(!($fileDirectory -> isDir()) And strcmp($fileDirectory -> getFilename(), $directoryName . '.php') != 0) {
-                echo "<h2>$fileDirectory</h2>
-                <a href='$fileDirectory -> getFilename()'>Per vedere $fileDirectory -> getBasename() clicca qui</a>";
+                echo "<h1 class=\"episode\">" . $fileDirectory -> getBasename(".mp4.php") . "</h1>
+                <a href=" . $fileDirectory -> getFilename() . " class=\"episode\">Per vedere " . $fileDirectory -> getBasename(".mp4.php") . " clicca qui</a>";
             }
         }
     }
@@ -82,7 +80,7 @@
         $htmlPage = "<!DOCTYPE html>
         <html lang='it'>
            <head>
-               <title>WinStreaming - Homepage</title>
+               <title>WinStreaming - $directoryName</title>
                <meta charset='UTF-8' />
                <meta name='viewport' content='width=device-width, initial-scale=1.0' />
                
@@ -136,7 +134,11 @@
                </div>
            
                 <footer>
-                   <p Style='color:#BFC4F4'>Credits: WinEnzo</p>
+                    <p Style=\"color:#BFC4F4;font-size:1em; text-align: center;\">
+                        <em>Web site design, testi e grafica &copy; 2020 WinStreaming - È vietata la riproduzione anche parziale.</em>
+                        <br />
+                        <em>Credits:Vincenzo Susso - WinEnzo</em>
+                    </p>
                </footer>
            </div>
            
@@ -156,7 +158,7 @@
         $htmlPage = "<!DOCTYPE html>
         <html lang='it'>
            <head>
-               <title>WinStreaming - Homepage</title>
+               <title>WinStreaming - $fileName</title>
                <meta charset='UTF-8' />
                <meta name='viewport' content='width=device-width, initial-scale=1.0' />
                
@@ -194,9 +196,10 @@
        
                <main>
                     <?php
-                        echo \"<h1>$fileName</h1>
+                        echo \"<h1 class=\\\"episode\\\">$fileName</h1>
                             <div class='video'>
-                                <video class='video-js vjs-default-skin' controls data-setup='{'Controls':true}'>
+                                <video class='video-js vjs-default-skin' controls data-setup='{\\\"Controls\\\":true,
+                                \\\"fluid\\\":true}'>
                                     <source src='$directoryVideoPath'>
                                 </video>
                             </div>\";
@@ -214,7 +217,11 @@
                </div>
            
                 <footer>
-                   <p Style='color:#BFC4F4'>Credits: WinEnzo</p>
+                    <p Style=\"color:#BFC4F4;font-size:1em; text-align: center;\">
+                        <em>Web site design, testi e grafica &copy; 2020 WinStreaming - È vietata la riproduzione anche parziale.</em>
+                        <br />
+                        <em>Credits:Vincenzo Susso - WinEnzo</em>
+                    </p>
                </footer>
            </div>
            
@@ -251,7 +258,7 @@
         foreach (new DirectoryIterator("Source/") as $fileDirectory) {
             if($fileDirectory -> isDir() And !$fileDirectory->isDot()) {
                 echo "<h1>" . $fileDirectory->getFilename() . "</h1>
-                <a href=Source/" . $fileDirectory . "/" . $fileDirectory . ".php>Clicca qui per vedere " . $fileDirectory->getFilename() . "</a>";
+                <a href=Source/" . $fileDirectory . "/" . $fileDirectory . ".php class=\"otherPage\" style=\"font-size:1.2em\">Clicca qui per vedere " . $fileDirectory->getFilename() . "</a>";
                 $pageWritten = true;
             }
         }

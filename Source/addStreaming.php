@@ -39,7 +39,7 @@
 
         <main>
             <div>
-                <h2>Istruzioni</h2>
+                <h1>Istruzioni</h1>
 
                 <p>Per poter inserire un Film/Serie TV all'interno del sito dovrai copiare una cartella che dovrà avere il
                     nome del film o della Serie TV all'interno della cartella "Videos".<br />
@@ -50,15 +50,36 @@
             </div>
 
             <div style="margin-top:30px; margin-bottom:30px">
-                <h2>Inserisci streaming:</h2>
+                <h1>Inserisci streaming:</h1>
                 <form style="margin-top:25px;margin-left:2%;margin-right:2%;" action="addStreaming.php">
-                    <label for="fname">Nome della cartella:</label>
+                    <label for="directoryName">Nome della cartella:</label>
                     <input type="text" id="directoryName" name="directoryName" />
                     <br /> <br />
                     <input type="submit" value="Invio">
                     <input type="reset" value="Reset">
                 </form>
             </div>
+
+            <?php
+                include "function.php";
+                if(isset($_GET["directoryName"])) { 
+                    $directoryName = $_GET["directoryName"];
+                    if(isValidDirectory($directoryName)) {
+                        saveDirectoryFile($directoryName);
+                        createHTMLPage($directoryName);
+                        echo "<div class=\"responseDiv\">
+                            <p class=\"responsePositive\">
+                                Lo streaming di " . $directoryName ." è stato inserito con successo
+                            </p>
+                        </div>";
+                    } else {
+                        echo "<div class=\"responseDiv\">
+                            <p class=\"responseNegative\">C'è stato un errore con lo streaming di " . $directoryName ."</p>
+                        </div>";
+                    }
+                }
+            ?>
+
         </main>
 
         <div id="navBarTop">
@@ -68,28 +89,18 @@
 
         <div id="navBarBottom">
             <h2>Vuoi Cancellare un Film/Serie TV ?</h2>
-            <a class="otherPage" href="#">Clicca qui!</a>
+            <a class="otherPage" href="removeStreaming.php">Clicca qui!</a>
         </div>
 
         <footer>
-            <p Style="color:#BFC4F4">Credits: WinEnzo</p>
+            <p Style="color:#BFC4F4;font-size:1em; text-align: center;">
+                <em>Web site design, testi e grafica &copy; 2020 WinStreaming - È vietata la riproduzione anche parziale.</em>
+                <br />
+                <em>Credits:Vincenzo Susso - WinEnzo</em>
+            </p>
         </footer>
 
     </div>
-
-    <?php
-        include "function.php";
-        if(isset($_GET["directoryName"])) { 
-            $directoryName = $_GET["directoryName"];
-            if(isValidDirectory($directoryName)) {
-                saveDirectoryFile($directoryName);
-                createHTMLPage($directoryName);
-                //Display ok msg
-            } else {
-                //Display Red Error msg
-            }
-        }
-    ?>
 
     </body>
 </html>

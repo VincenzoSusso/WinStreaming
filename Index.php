@@ -54,11 +54,15 @@
 
         <div id="navBarBottom">
             <h2>Vuoi Cancellare un Film/Serie TV ?</h2>
-            <a class="otherPage" href="#">Clicca qui!</a>
+            <a class="otherPage" href="Source/removeStreaming.php">Clicca qui!</a>
         </div>
 
         <footer>
-            <p Style="color:#BFC4F4">Credits: WinEnzo</p>
+            <p Style="color:#BFC4F4;font-size:1em; text-align: center;">
+                <em>Web site design, testi e grafica &copy; 2020 WinStreaming - È vietata la riproduzione anche parziale.</em>
+                <br />
+                <em>Credits:Vincenzo Susso - WinEnzo</em>
+            </p>
         </footer>
     </div>
 
